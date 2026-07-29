@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بحث نتيجة الثانوية العامة</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --card: #16213a;
+    --accent: #22c55e;
+    --accent-dim: #16a34a;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --border: #263149;
+    --danger: #f87171;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 24px 16px 60px;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; }
+  h1 { text-align: center; font-size: 1.6rem; margin-bottom: 4px; }
+  .sub { text-align: center; color: var(--muted); margin-bottom: 28px; font-size: 0.9rem; min-height: 1.3em; }
+  .search-box {
+    display: flex;
+    gap: 8px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  }
+  input[type=text] {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-size: 1.05rem;
+    padding: 10px 12px;
+  }
+  input[type=text]::placeholder { color: var(--muted); }
+  input[type=text]:disabled { opacity: 0.5; }
+  button {
+    background: var(--accent);
+    color: #04220f;
+    border: none;
+    border-radius: 10px;
+    padding: 0 22px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.15s ease;
+  }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  button:not(:disabled):hover { background: var(--accent-dim); }
+  .meta { margin-top: 14px; color: var(--muted); font-size: 0.85rem; min-height: 1.2em; }
+  .results { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .result-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .result-name { font-size: 1.05rem; font-weight: 600; }
+  .result-sub { color: var(--muted); font-size: 0.85rem; margin-top: 4px; }
+  .badge {
+    font-size: 0.72rem;
+    padding: 3px 9px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .badge.exact { color: var(--accent); border-color: var(--accent-dim); }
+  .total { font-weight: 700; font-size: 1.1rem; min-width: 60px; text-align: center; }
+  .pass { color: var(--accent); }
+  .fail { color: var(--danger); }
+  .empty { text-align: center; color: var(--muted); margin-top: 40px; font-size: 0.95rem; }
+  footer { text-align: center; color: var(--muted); font-size: 0.75rem; margin-top: 40px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>🔎 بحث نتيجة الثانوية العامة</h1>
+    <div class="sub" id="statusLine">جاري تحميل البيانات...</div>
+
+    <div class="search-box">
+      <input id="q" type="text" placeholder="اكتب الاسم كامل أو جزء منه، أو رقم الجلوس..." autofocus disabled>
+      <button id="btn" disabled>بحث</button>
+    </div>
+
+    <div class="meta" id="meta"></div>
+    <div class="results" id="results"></div>
+  </div>
+
+  <footer>البحث يتم بالكامل داخل متصفحك - لا يتم إرسال أي بيانات لأي سيرفر</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
